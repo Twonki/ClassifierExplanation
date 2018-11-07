@@ -1,0 +1,37 @@
+\documentclass[9pt,a4paper,titlepage,oneside,mathserif,serif]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Leonhard Applis , Lisa Branz}
+\title{Classifier Explanation}
+\subtitle{Introduction to the Algorithms LIME and ANCHOR}
+\institute{TH Nürnberg} % (optional)
+\date{21.1.2019}
+\subject{BigDataSystems}
+
+\usetheme{PaloAlto}
+%% \usecolortheme{beaver}
+\AtBeginSection[]
+{
+\begin{frame}
+	\frametitle{Table of Contents}
+	\tableofcontents[currentsection,currentsubsection]
+\end{frame}
+}
+%%------------------ for longer presentations required
+\pgfmathsetmacro{\progress}{\insertframestartpage/\inserttotalframenumber}
+
+\begin{document}
+\frame{\titlepage}
+\include{TexFiles/Introduction}
+\include{TexFiles/LIME}
+\include{TexFiles/SPLIME}
+\include{TexFiles/ANCHOR}
+\include{TexFiles/ExampleOne}
+\include{TexFiles/ExampleTwo}
+\include{TexFiles/Summary}
+
+\end{document}
