@@ -35,41 +35,72 @@
 	\begin{itemize}
 		\item \textit{human-readable}
 		\item reproducable (same input + same model $\rightarrow$ same output)
-		\item \textbf{model angostic}, meaning they can work with any (black-box) model
+		\item \textbf{model agnostic}, meaning they can work with any (black-box) model
 	\end{itemize}
 	
 	Difficulties:
 	\begin{itemize}
 		\item Models can be huge (millions of weights)
 		\item Inputvectors can be huge (e.g. images)
-		\item Some models are to complex by it's structure to be readable, (e.g. neural networks)
+		\item Some models are to complex by it's structure to be readable, \newline (e.g. neural networks)
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Example}
-	Maybe just pick the Atheist Christian Example from the paper
+	\framesubtitle{Desired output of a "Atheism"-Classifier}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Images/AtheismExample}
+		\caption[LIME-Text-Example]{LIME-Text: predicting "Atheism" for given text }
+		\label{fig:atheismexample}
+	\end{figure}
+	\begin{center}
+		Both algorithms predict correct - yet Algorithm 2 has strange reasons.
+	\end{center}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Trusting a Model}
-	Whats the next step after trusting a single prediction
-	
-	Mention time-required for manually checking a lot of pictures
+	\begin{center}
+		\begin{Large}
+			trusting predictions $\neq$ trusting a model
+		\end{Large}
+	\end{center}
+~\newline ~\newline 
+	What do we want? 
+	\begin{enumerate}
+		\item get an \textit{overview} of our Model
+		\item compare models in reasonable time
+		\item proove correctness \& flaws of a model
+		\item improve our models
+	\end{enumerate}
 \end{frame}
-\begin{frame}
-	\frametitle{Example}
-	
-\end{frame}
+
 \begin{frame}
 	\frametitle{Prooving a Model}
-	Classifier Explanation is required to set anything up IRL, or everyone will hate you very bad
+	Several topics which benefit from machine learning, but need special care: 
+	\begin{Large}
+		\begin{enumerate}
+			\item Terrorism-detection
+			\item Medical diagnosis \& prescriptions
+			\item Fraud-detection
+		\end{enumerate}
+	\end{Large}
+
+	Noone will buy a model, if you can't prove that it's performing reasonable predictions.
 \end{frame}
 \begin{frame}
 	\frametitle{Improving a Model}
-	How Classifier Explanation helps you to improve your models
-	
-	Better Filtering
-	Maybe better weighting of features
-	Finding Links in Classification (Similiar Classes?)
+	There are several issues, at which explanations can help you improve your models:
+	~\newline
+	\begin{Large}
+		\begin{enumerate}
+			\item Filtering of Features
+			\item Find overfitted weighting of features
+			\item Find Links in Classification (Similiar Classes and Features)
+		\end{enumerate}
+	\end{Large}
+	~\newline ~\newline
+	Gaining insights from explanations can help you improve your model!
 \end{frame}
