@@ -1,12 +1,56 @@
 \section{Basics}
+
 \begin{frame}
 	\frametitle{Trusting a Prediction}
-	What do Humans need to unterstand a Prediction
+	\framesubtitle{Intro}
+	\begin{LARGE}
+		\textbf{Me:} Hey Siri, order me a Pizza \newline  ~\newline
+		\textbf{Siri:} \textit{(After a short break that nearly drains your whole battery)} Ok, I'm calling your mother... \newline  ~\newline
+		\textbf{Me:} Wait! Why would you do this!? ~\newline ~\newline
+		\textbf{Siri:} This is the 5th time you ordered Pizza this week. \newline ~\newline
+	\end{LARGE} 
 \end{frame}
+
+\begin{frame}
+	\frametitle{Trusting a Prediction}
+	\framesubtitle{Goals}
+	\begin{Large}
+		What do we want from our model? ~\newline
+		
+		\begin{enumerate}
+			\item Why did failed predictions fail?
+			\item Why did correct predictions succeed?
+			\item Why is my model uncertain about a prediction?
+		\end{enumerate} ~\newline~\newline
+	
+	\textbf{special importance: ~\newline setting a model \textit{live}, where it's not \textit{prelabeled}}
+	\end{Large}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Trusting a Prediction}
+	\framesubtitle{Requirements}
+	
+	Interpretations must be ...
+	\begin{itemize}
+		\item \textit{human-readable}
+		\item reproducable (same input + same model $\rightarrow$ same output)
+		\item \textbf{model angostic}, meaning they can work with any (black-box) model
+	\end{itemize}
+	
+	Difficulties:
+	\begin{itemize}
+		\item Models can be huge (millions of weights)
+		\item Inputvectors can be huge (e.g. images)
+		\item Some models are to complex by it's structure to be readable, (e.g. neural networks)
+	\end{itemize}
+\end{frame}
+
 \begin{frame}
 	\frametitle{Example}
 	Maybe just pick the Atheist Christian Example from the paper
 \end{frame}
+
 \begin{frame}
 	\frametitle{Trusting a Model}
 	Whats the next step after trusting a single prediction
