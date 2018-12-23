@@ -1,19 +1,62 @@
 \section{LIME}
 \begin{frame}
-	\frametitle{Summary: What do we want}
-	Human Readable Model Explanation
-	For Every Classifier
-	For Every Input
+	\frametitle{Requirements}
+	\begin{Large}
+		\textbf{What do we want:}
+		\begin{itemize}
+			\item Human Readable Model Explanation
+			\item For Every Classifier
+			\item For Every Input
+		\end{itemize}
+	~\newline
+	\begin{center}
+		\textbf{ features $\neq$ human readable }
+	\end{center}
+	~\newline
+	\end{Large}
+	To gain $readability$: 
+	\begin{itemize}
+		\item show influence relative to each other, not as numbers
+		\item only show most important features
+		\item use \textit{superpixels} instead of pixels
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Definitions}
-	All the stuff from the Lime Paper with the fancy $\nabla$ and $\lambda$ and greeky cheeky mumbo jumbo
+	Let:
+	\begin{enumerate}
+		\item $G$ be any possible explanation model
+		\item $g$ be our explanation Model
+		\item $\Omega(g)$ the complexity of our Model
+		\begin{itemize}
+			\item Weights in a regressions model
+			\item Depth of an decisiontree
+			\item Number of trees in a random forest
+		\end{itemize}
+		\item $f: Features -> Class $ be the real classification
+		\item $\Pi_x(z)$ as proximity-measure from $x$ to $z$
+		\item $\mathcal{L}(f,g,\Pi_x)$ measure of un-faithfullness of $g$ compared to $f$ given the proxmity $\Pi_x$
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Minimizing Fidelity $\cdot$ Interpretability}
-	The part talking about making a minimal complex model which is quite accurate
+	\begin{Large}
+		Wanted: ~\newline
+		\begin{center}
+			$\xi(x) = argmin_{g\in G} ~ \mathcal{L}(f,g,\Pi_x) + \Omega(g)$
+		\end{center}
+		Read: 
+		\begin{itemize}
+			\item We want for every input $x$
+			\item an explanation(-model)
+			\item where complexity of $g$ and the failure of $g$ are minimal
+			\item given a set of possible explanations $G$
+		\end{itemize}
+	\end{Large}
+~\newline ~\newline 
+We do so by picking samples $x^,$ as subsets from an input $x$ and optimizing our model $g$ 
 \end{frame}
 
 \begin{frame}
