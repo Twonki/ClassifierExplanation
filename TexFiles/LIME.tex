@@ -67,18 +67,18 @@ We do so by picking samples $x^,$ as subsets from an input $x$ and \textbf{optim
 	Machine Learning algorithm to select most important features relative to each other. ~\newline
 	G are only \textit{sparse linear regression models} (e.g. Decision Trees or simple logistic regression) ~\newline 
 	
-	\begin{algorithm}[H]
-		\SetKwInOut{Require}{Require}
-		\Require{Classifier $f$, Number of samples $N$}
-		\Require{Instance $x$, and its interpretable version $x^,$}
-		\Require{Similarity kernel $\pi_x$, Length of explanation $K$}
-		$\mathcal{Z} \leftarrow \{\}$\;
-		\ForEach{$i \in \{1,2,..,N\}$}{
-		$z^,_i \leftarrow sample\_around(x^,)$\;
-		$\mathcal{Z} \leftarrow \mathcal{Z} \cup \<z^,_i ,f(z_i,\pi_x(z_i)) \>$\;
-		}
-		$ w \leftarrow K-Lasso(\mathcal{Z},K)  \triangleright~ with~ z^,_i~ as~ features,~ f(z) ~ as ~ target$\;
-		return  $w$\;
-	\end{algorithm}
+%	\begin{algorithm}[H]
+%		\SetKwInOut{Require}{Require}
+%		\Require{Classifier $f$, Number of samples $N$}
+%		\Require{Instance $x$, and its interpretable version $x^,$}
+%		\Require{Similarity kernel $\pi_x$, Length of explanation $K$}
+%		$\mathcal{Z} \leftarrow \{\}$\;
+%		\ForEach{$i \in \{1,2,..,N\}$}{
+%		$z^,_i \leftarrow sample\_around(x^,)$\;
+%		$\mathcal{Z} \leftarrow \mathcal{Z} \cup \<z^,_i ,f(z_i,\pi_x(z_i)) \>$\;
+%		}
+%		$ w \leftarrow K-Lasso(\mathcal{Z},K)  \triangleright~ with~ z^,_i~ as~ features,~ f(z) ~ as ~ target$\;
+%		return  $w$\;
+%	\end{algorithm}
 
 \end{frame}

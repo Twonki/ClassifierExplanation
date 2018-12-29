@@ -6,6 +6,9 @@
 \usepackage{graphicx}
 \usepackage{algorithm2e} 
 
+\usepackage[procnames]{listings}
+\usepackage{color}
+
 \author{Leonhard Applis}
 \title{Classifier Explanation}
 \subtitle{Introduction to the Algorithms LIME and SP-LIME}
@@ -24,11 +27,28 @@
 }
 %%------------------ for longer presentations required
 \pgfmathsetmacro{\progress}{\insertframestartpage/\inserttotalframenumber}
+%%------------------ To Show PythonCode with Lstlistings
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{black}{RGB}{0,0,0}
+
+\lstset{language=Python, 
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{keywords},
+	commentstyle=\color{green},
+	stringstyle=\color{comments},
+	showstringspaces=false,
+	identifierstyle=\color{black},
+	procnamekeys={def,class}}
+
 
 \begin{document}
 \frame{\titlepage}
+\frame{\tableofcontents}
 \include{TexFiles/Introduction}
 \include{TexFiles/LIME}
 \include{TexFiles/Example}
-\include{TexFiles/SPLIME}
+%\include{TexFiles/SPLIME}
 \end{document}
