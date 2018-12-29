@@ -56,19 +56,29 @@
 		\end{itemize}
 	\end{Large}
 ~\newline ~\newline 
-We do so by picking samples $x^,$ as subsets from an input $x$ and optimizing our model $g$ 
+We do so by picking samples $x^,$ as subsets from an input $x$ and \textbf{optimizing} our model $g$ \footnote{We do not really check different models, we train one} 
 \end{frame}
 
 \begin{frame}
 	\frametitle{Local Interpretable Model-Agnostic Explanations}
 	\framesubtitle{The LIME-Algorithm}
-	Here is the Pseudocode. 
-\end{frame}
-\begin{frame}
-	\frametitle{Visualisation}
-	Put the funky red-blue image with the red-crosses from the paper here
-\end{frame}
+	Additional Requirements: ~\newline 
+	\textbf{LASSO}\footnote{Further Reading: \url{https://beta.vu.nl/nl/Images/werkstuk-fonti_tcm235-836234.pdf}} - \textit{Least Absolute Shrinkage and Selection Operator} ~\newline 
+	Machine Learning algorithm to select most important features relative to each other. ~\newline
+	G are only \textit{sparse linear regression models} (e.g. Decision Trees or simple logistic regression) ~\newline 
+	
+	\begin{algorithm}[H]
+		\SetKwInOut{Require}{Require}
+		\Require{Classifier $f$, Number of samples $N$}
+		\Require{Instance $x$, and its interpretable version $x^,$}
+		\Require{Similarity kernel $\pi_x$, Length of explanation $K$}
+		$\mathcal{Z} \leftarrow \{\}$\;
+		\ForEach{$i \in \{1,2,..,N\}$}{
+		$z^,_i \leftarrow sample\_around(x^,)$\;
+		$\mathcal{Z} \leftarrow \mathcal{Z} \cup \<z^,_i ,f(z_i,\pi_x(z_i)) \>$\;
+		}
+		$ w \leftarrow K-Lasso(\mathcal{Z},K)  \triangleright~ with~ z^,_i~ as~ features,~ f(z) ~ as ~ target$\;
+		return  $w$\;
+	\end{algorithm}
 
-\begin{frame}
-	maybe: Example 
 \end{frame}
