@@ -1,6 +1,7 @@
 \section{LIME}
 \begin{frame}
-	\frametitle{Requirements}
+	\frametitle{Local Interpretable Model-Agnostic Explanations}
+	\framesubtitle{Requirements}
 	\begin{Large}
 		\textbf{What do we want:}
 		\begin{itemize}
@@ -23,7 +24,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Definitions}
+	\frametitle{Local Interpretable Model-Agnostic Explanations}
+	\framesubtitle{Definitions}
 	Let:
 	\begin{enumerate}
 		\item $G$ be any possible explanation model
@@ -41,7 +43,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Minimizing Fidelity $\cdot$ Interpretability}
+	\frametitle{Local Interpretable Model-Agnostic Explanations}
+	\framesubtitle{Minimizing Fidelity $\cdot$ Interpretability}
 	\begin{Large}
 		Wanted: ~\newline
 		\begin{center}
@@ -67,18 +70,34 @@ We do so by picking samples $x^,$ as subsets from an input $x$ and \textbf{optim
 	Machine Learning algorithm to select most important features relative to each other. ~\newline
 	G are only \textit{sparse linear regression models} (e.g. Decision Trees or simple logistic regression) ~\newline 
 	
-%	\begin{algorithm}[H]
-%		\SetKwInOut{Require}{Require}
-%		\Require{Classifier $f$, Number of samples $N$}
-%		\Require{Instance $x$, and its interpretable version $x^,$}
-%		\Require{Similarity kernel $\pi_x$, Length of explanation $K$}
-%		$\mathcal{Z} \leftarrow \{\}$\;
-%		\ForEach{$i \in \{1,2,..,N\}$}{
-%		$z^,_i \leftarrow sample\_around(x^,)$\;
-%		$\mathcal{Z} \leftarrow \mathcal{Z} \cup \<z^,_i ,f(z_i,\pi_x(z_i)) \>$\;
-%		}
-%		$ w \leftarrow K-Lasso(\mathcal{Z},K)  \triangleright~ with~ z^,_i~ as~ features,~ f(z) ~ as ~ target$\;
-%		return  $w$\;
-%	\end{algorithm}
+	\begin{algorithm}[H]
+		\SetKwInOut{Require}{Require}
+		\Require{Classifier $f$, Number of samples $N$}
+		\Require{Instance $x$, and its interpretable version $x^,$}
+		\Require{Similarity kernel $\pi_x$, Length of explanation $K$}
+		$\mathcal{Z} \leftarrow \{\}$\;
+		\ForEach{$i \in \{1,2,..,N\}$}{
+		$z^,_i \leftarrow sample\_around(x^,)$\;
+		$\mathcal{Z} \leftarrow \mathcal{Z} \cup \<z^,_i ,f(z_i,\pi_x(z_i)) \>$\;
+		}
+		$ w \leftarrow K-Lasso(\mathcal{Z},K)  \triangleright~ with~ z^,_i~ as~ features,~ f(z) ~ as ~ target$\;
+		return  $w$\;
+	\end{algorithm}
 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Submodular-Pick-LIME}
+	\framesubtitle{Basic Idea}
+	Problem: The user can't check every prediction ~\newline
+	Solution: SP-Lime presents a \textit{smart} subset of predictions, which the user can check
+	\begin{LARGE}
+		\begin{enumerate}
+			\item Do LIME for more images/documents and different classes
+			\item Setup a table $feature~\times~class$
+			\item Present the user a selection of $n$-predictions, which show the strongest,distinct features 
+		\end{enumerate}
+	\end{LARGE}
+~\newline ~\newline 
+\textit{Note: The submodular-pick's basic idea would work without LIME}
 \end{frame}
